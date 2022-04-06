@@ -1,0 +1,13 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global"  controller="LightningDataTableController">
+    <aura:attribute name="mydata" type="Object"/>
+    <aura:attribute name="mycolumns" type="List"/>
+        
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <lightning:datatable aura:id="conTable"
+                         data="{! v.mydata }" 
+                         columns="{! v.mycolumns }" 
+                         keyField="Id"
+                         onsave="{!c.onSave}"
+                         onrowaction="{!c.handleRowAction}"/>
+</aura:component>

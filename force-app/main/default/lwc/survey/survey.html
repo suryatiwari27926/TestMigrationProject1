@@ -1,0 +1,24 @@
+<template>
+    <div class="slds-var-m-around_medium slds-var-p-around_medium" 
+        style="background-color: aquamarine;">
+        <lightning-card multiple-rows="true">
+            <lightning-layout-item>
+                Survey
+            </lightning-layout-item>
+            <lightning-layout-item>
+                <lightning-button 
+                    variant="brand" 
+                    label="Start Survey" 
+                    title="Primary action" 
+                    onclick={handleClick} 
+                    class="slds-m-left_x-small">
+                </lightning-button>
+            </lightning-layout-item>
+            <div>
+                <lightning-layout-item>
+                    {Questions}
+                </lightning-layout-item>
+            </div>
+        </lightning-card>
+    </div>
+</template>

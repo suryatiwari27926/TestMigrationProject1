@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closing_Stage_Formula__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASE( Closing_Stage__c,
+&quot;draft&quot;, &quot;draft&quot;,
+&quot;interest&quot;, &quot;active&quot;,
+&quot;active&quot;, &quot;active&quot;,
+&quot;waitlist&quot;, &quot;waitlist&quot;,
+&quot;funded&quot;, &quot;funded&quot;,
+&quot;cashflowing&quot;, &quot;funded&quot;,
+&quot;excited&quot;, &quot;funded&quot;,
+&quot;draft&quot;)</formula>
+    <label>Closing Stage Formula</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

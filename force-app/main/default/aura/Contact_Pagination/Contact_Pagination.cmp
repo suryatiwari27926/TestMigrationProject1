@@ -1,0 +1,51 @@
+<aura:component controller = "Contact_Pagination" 
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global">
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <aura:attribute name="ContactList" type="String[]" />
+    <aura:attribute name="paginationList" type="String[]"/>
+    <aura:attribute name="pageSize" type="Integer" default="10"/>
+    <aura:attribute name="totalSize" type="Integer"/>
+    <aura:attribute name="start" type="Integer" />
+    <aura:attribute name="end" type="Integer"/>
+    
+    <table >
+        <tr >
+            <td style="width:5%">Show</td>
+            <td style="width:7%">
+                <ui:inputSelect aura:id="records" change="{!c.onSelectChange}">
+                    <ui:inputSelectOption text="10" value="10"/>
+                    <ui:inputSelectOption text="50" value="50"/>
+                    <ui:inputSelectOption text="100" value="100"/>
+                </ui:inputSelect></td>
+            <td>Entries</td>
+        </tr>
+    </table>
+    
+    <table class="slds-table slds-table–bordered ">
+        <thead>
+            <tr style="background-color:#6cbcd2;color:white;font-weight:bold">
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Account</th>
+                <th>Phone</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <aura:iteration items="{!v.paginationList}" var="item">
+                <tr>
+                    <td><ui:outputText value="{!item.FirstName}"/></td>
+                    <td><ui:outputText value="{!item.LastName}"/></td>
+                    <td><ui:outputText value="{!item.Account.Name}"/></td>
+                    <td><ui:outputText value="{!item.Phone}"/></td>
+                    <td><ui:outputText value="{!item.Email}"/></td>
+                </tr>
+            </aura:iteration>
+            <lightning:button label="First" onclick="{!c.first}" />
+            <lightning:button label="Previous" onclick="{!c.previous}" />
+            <lightning:button label="Next" onclick="{!c.next}" />
+            <lightning:button label="Last" onclick="{!c.last}" />
+        </tbody>
+    </table>
+</aura:component>
